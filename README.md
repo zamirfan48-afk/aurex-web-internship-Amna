@@ -1,124 +1,123 @@
-# Aurex Full-Stack Web Development Internship
-
+# Aurex Full-Stack Engineering Internship
 
 ## Intern Details
-    > Full Name     : Amna Irfan
-    > Domain        : Full-Stack Web Development
-    > Week          : Week 2 – CSS3 Fundamentals, Modern Layouts & Responsive Web Design
 
+    > Full Name: Amna Irfan
+    > Domain: Full-Stack Web Development
+    > Week: Week 3 – Advanced CSS, Animation & Interactive Portfolio Design
 
 ## Project
-    > Personal Developer Portfolio
-        - For Week 2 of the Aurex Full-Stack Web Development Internship, I enhanced my personal developer portfolio by applying CSS3 styling, modern layout techniques, responsive design, and basic UI/UX principles.
 
-        - The portfolio now presents my profile, skills, projects, experience, education, and contact information through a clean and responsive user interface.
+### Personal Developer Portfolio
 
+    For Week 3, I enhanced my Week 2 responsive portfolio by applying advanced CSS layouts, animations, transitions, responsive improvements, and UI refinement.
+
+    The main focus was on creating a more interactive and visually polished portfolio while maintaining clean structure and responsive behavior across different screen sizes.
 
 ## Live Deployment
-    > GitHub Pages  : https://zamirfan48-afk.github.io/aurex-web-internship-Amna/
 
+    GitHub Pages: https://zamirfan48-afk.github.io/aurex-web-internship-Amna/
 
 ## Technologies Used
-    * HTML5
-    * CSS3
-    * Git
-    * GitHub
-    * GitHub Pages
-    * Visual Studio Code
+
+    - HTML5
+    - CSS3
+    - Git & GitHub
+    - GitHub Pages
+    - Visual Studio Code
+
+## Week 3 Features
+
+### Advanced CSS Layout
+
+    - Implemented responsive CSS Grid for the Projects section
+    - Used auto-fit and minmax() for flexible project card layouts
+    - Combined CSS Grid with Flexbox for structured content inside cards
+    - Added CSS custom properties for reusable colors, borders, shadows, and sizing
+    - Applied fluid typography using clamp()
+    - Improved responsive layouts using CSS media queries
+    - Added a dark-mode foundation using prefers-color-scheme
+
+### Animations & Interactions
+
+    - Created a custom fadeInUp keyframe animation for page-load effects
+    - Added smooth hover transitions to cards
+    - Added card elevation effects using transform and box-shadow
+    - Added button hover and active states
+    - Added staggered animation delays to page sections
+    - Added keyboard focus styling using :focus-visible
+
+### UI & Responsive Improvements
+
+    - Improved spacing and visual hierarchy
+    - Refined typography and readability
+    - Improved card presentation and consistency
+    - Enhanced navigation and form responsiveness
+    - Optimized the layout for desktop, tablet, and mobile screen sizes
+    - Maintained responsive behavior without major layout breaks or horizontal scrolling
+
+## CSS Architecture
+
+The Week 3 project uses a structured stylesheet organization:
+
+    > main.css – layout, general styling, CSS variables, responsive design, and theme foundation
+
+    > animations.css – keyframe animations, transitions, hover effects, active states, and animation delays
 
 
-## CSS Features & Layout Techniques
-    * CSS reset and box-sizing
-    * Typography and text styling
-    * Colors and backgrounds
-    * Spacing and alignment
-    * CSS Flexbox for the navigation layout
-    * CSS Grid for the skills layout
-    * CSS Grid for the desktop projects layout
-    * Card-based UI styling
-    * Borders and border radius
-    * Hover effects
-    * Keyboard focus states using :focus-visible
-    * Responsive design using CSS media queries
-    * Responsive typography and spacing
-    * Responsive navigation
-    * Responsive forms
-    * Responsive profile image sizing
+## Responsive & Live Testing
 
+    > The portfolio was tested across:
+        - Desktop
+        - Tablet
+        - Mobile
 
-## Responsive Design
-    > The portfolio was designed to work across different screen sizes, including:
-        * Desktop
-        * Tablet
-        * Mobile
-        * Small mobile devices
+    > Testing confirmed that:
 
-    > Media queries were used to adjust navigation, typography, spacing, grids, cards, forms, and profile image sizing for smaller screens.
-
-
+        - Project cards adapt to available screen width
+        - Responsive layouts remain functional across different viewport sizes
+        - Typography and spacing scale appropriately
+        - Interactive effects work as expected
+        - No major horizontal scrolling or visual layout breaks were observed
+        - The updated portfolio and animations were verified on the GitHub Pages deployment
+        
 ## Key Learnings
-    > During Week 2, I learned and practiced:
-        * CSS selectors and styling fundamentals
-        * The CSS box model
-        * Flexbox layout techniques
-        * CSS Grid layout techniques
-        * Responsive web design
-        * Media queries
-        * Typography and spacing
-        * UI hierarchy and consistency
-        * Hover and focus states
-        * Basic accessibility considerations
-        * Deploying a static website using GitHub Pages
 
-
-## Challenges
-    > The main challenges during Week 2 included:
-        * Creating a layout that remains usable and readable across different screen sizes.
-        * Understanding when to use Flexbox and CSS Grid for different layout requirements.
-        * Maintaining consistent spacing and typography across desktop, tablet, and mobile layouts.
-        * Adjusting navigation and content layouts for smaller screens.
-        * Ensuring the portfolio remained visually consistent and responsive.
-        * Deploying the completed portfolio using GitHub Pages.
-
+    > During Week 3, I practiced:
+        - Advanced CSS Grid with auto-fit and minmax()
+        - Combining Grid and Flexbox
+        - CSS custom properties
+        - Keyframe animations and transitions
+        - Transform and hover effects
+        - Fluid typography with clamp()
+        - Responsive UI refinement
+        - Accessibility-aware focus states
+        - Structured CSS organization
+        - UI polish and micro-interactions
 
 ## Project Structure
 
     aurex-web-internship-Amna/
     │
     ├── index.html
-    ├── style.css
+    ├── styles/
+    │   ├── main.css
+    │   └── animations.css
     ├── myProfile.jpg
     └── README.md
+    
+## Week 2 → Week 3 Progress
 
+    > Week 2: Built and deployed a responsive personal portfolio using HTML and CSS.
 
-## How to Run Locally
-    Prerequisites
+    > Week 3: Enhanced the portfolio with advanced CSS Grid, Flexbox, animations, transitions, fluid styling, responsive refinements, and improved UI interactions.
 
-    > Make sure the following are installed:
-        * Git
-        * Visual Studio Code
-        * A modern web browser
+## Outcome
 
-    Steps
-
-    1. Clone the repository:
-        git clone     : https://github.com/zamirfan48-afk/aurex-web-internship-Amna.git
-
-    2.  Navigate to the project directory:
-        cd aurex-web-internship-Amna
-
-    3. Open the project in Visual Studio Code:
-        code .
-
-
-## Week 2 Outcome
-    > The Week 1 HTML portfolio was successfully transformed into a styled, responsive developer portfolio using CSS3, Flexbox, CSS Grid, and responsive design techniques.
-
-    > The project was deployed using GitHub Pages and is available at the live deployment link above.
-
-
+    The Week 3 portfolio is a more dynamic and polished version of the Week 2 project, demonstrating advanced CSS layout techniques, animations, responsive design, and interactive UI elements.
 
 ## Author
-    * Amna Irfan
-    * GitHub    : https://github.com/zamirfan48-afk
-    * Internship: Aurex Full-Stack Web Development Internship
+
+    > Amna Irfan
+    > GitHub: https://github.com/zamirfan48-afk
+    > Aurex Full-Stack Engineering Internship

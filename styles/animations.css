@@ -1,0 +1,95 @@
+/* =========================PAGE LOAD ANIMATION====================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header,
+main > section,
+footer {
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+
+/* =========================PROJECT CARD ANIMATION====================== */
+
+#projects article {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projects article:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card);
+}
+
+
+/* =========================BUTTON INTERACTION====================== */
+
+form button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
+form button:active {
+    transform: scale(0.98);
+}
+
+form button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+
+/* =========================CONTENT CARD ANIMATION====================== */
+
+#experience article,
+#education article,
+#skills li {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#experience article:hover,
+#education article:hover,
+#skills li:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+}
+
+
+/* =========================SECTION ANIMATION DELAYS====================== */
+
+main > section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+main > section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+main > section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+main > section:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+main > section:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+main > section:nth-child(6) {
+    animation-delay: 0.6s;
+}
