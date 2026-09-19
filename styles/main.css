@@ -328,7 +328,7 @@ footer a:focus-visible {
 
 
 /* =====================RESPONSIVE DESIGN======================= */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
 
     nav {
         flex-direction: column;
@@ -365,6 +365,42 @@ footer a:focus-visible {
     form input,
     form textarea {
         padding: 0.7rem;
+    }
+}
+
+
+/* =====================TABLET LAYOUT======================= */
+@media (min-width: 481px) and (max-width: 1024px) {
+
+    nav {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    nav a {
+        padding: 0.35rem 0;
+        font-size: 0.95rem;
+    }
+
+    main {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    section {
+        margin-bottom: 3.5rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    form div {
+        margin-bottom: 1rem;
+    }
+
+    form textarea {
+        min-height: 7rem;
     }
 }
 
