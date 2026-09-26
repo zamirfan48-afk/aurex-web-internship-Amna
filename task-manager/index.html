@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ledger — Task Manager</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/main.css">
+
+</head>
+
+<body>
+
+  <div class="page">
+
+    <header class="masthead">
+
+      <div class="masthead__title">
+
+        <h1>Ledger</h1>
+
+        <p class="masthead__sub">a daily record of what needs doing</p>
+
+      </div>
+      <div class="masthead__date" id="todayDate"></div>
+
+    </header>
+
+
+
+    <section class="stats" aria-label="Task summary">
+
+      <div class="stat">
+
+        <span class="stat__num" id="statTotal">0</span>
+        <span class="stat__label">entries</span>
+
+      </div>
+      <div class="stat">
+
+        <span class="stat__num" id="statActive">0</span>
+        <span class="stat__label">open</span>
+
+      </div>
+      <div class="stat">
+
+        <span class="stat__num" id="statDone">0</span>
+        <span class="stat__label">closed</span>
+
+      </div>
+
+    </section>
+
+
+
+    <form class="entry-form" id="entryForm" novalidate>
+
+      <div class="entry-form__row">
+
+        <label for="taskInput" class="sr-only">New entry</label>
+        <input type="text" id="taskInput" class="entry-form__input" placeholder="Write a new entry…" autocomplete="off">
+
+        <select id="priorityInput" class="entry-form__priority" aria-label="Priority">
+          <option value="low">Low</option>
+          <option value="normal" selected>Normal</option>
+          <option value="high">High</option>
+        </select>
+
+        <button type="submit" class="entry-form__submit">Add entry</button>
+
+      </div>
+
+      <p class="entry-form__error" id="formError" role="alert" aria-live="polite"></p>
+
+    </form>
+
+    <nav class="filters" aria-label="Filter entries">
+
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="active">Open</button>
+      <button class="filter" data-filter="completed">Closed</button>
+      <button class="filter filter--clear" id="clearCompleted" type="button">Clear closed</button>
+
+    </nav>
+
+    <main>
+
+      <ul class="ledger" id="ledgerList" aria-live="polite"></ul>
+
+      <p class="empty-state" id="emptyState">No entries yet — write the first line above.</p>
+
+    </main>
+
+  </div>
+
+  <div class="edit-dialog" id="editDialog" hidden>
+
+    <div class="edit-dialog__panel">
+
+      <h2>Edit entry</h2>
+
+      <label for="editInput" class="sr-only">Edit entry text</label>
+      <input type="text" id="editInput" class="entry-form__input" maxlength="120">
+
+      <p class="entry-form__error" id="editError" role="alert" aria-live="polite"></p>
+
+      <div class="edit-dialog__actions">
+
+        <button type="button" id="editCancel" class="btn btn--ghost">Cancel</button>
+        <button type="button" id="editSave" class="btn">Save</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>
