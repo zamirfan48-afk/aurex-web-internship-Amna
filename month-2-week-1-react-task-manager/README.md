@@ -4,7 +4,7 @@ A component-driven task manager built with React and Vite for the AUREX Internsh
 
 ## Live Demo
 
-Pending deployment.
+https://zamirfan48-afk.github.io/aurex-web-internship-Amna/react-task-manager/
 
 ## Features
 
