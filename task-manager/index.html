@@ -2,127 +2,170 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Ledger — Task Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Deck</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="styles/main.css">
-
 </head>
 
 <body>
 
-  <div class="page">
-
-    <header class="masthead">
-
-      <div class="masthead__title">
-
-        <h1>Ledger</h1>
-
-        <p class="masthead__sub">a daily record of what needs doing</p>
-
-      </div>
-      <div class="masthead__date" id="todayDate"></div>
-
-    </header>
-
-
-
-    <section class="stats" aria-label="Task summary">
-
-      <div class="stat">
-
-        <span class="stat__num" id="statTotal">0</span>
-        <span class="stat__label">entries</span>
-
-      </div>
-      <div class="stat">
-
-        <span class="stat__num" id="statActive">0</span>
-        <span class="stat__label">open</span>
-
-      </div>
-      <div class="stat">
-
-        <span class="stat__num" id="statDone">0</span>
-        <span class="stat__label">closed</span>
-
-      </div>
-
-    </section>
-
-
-
-    <form class="entry-form" id="entryForm" novalidate>
-
-      <div class="entry-form__row">
-
-        <label for="taskInput" class="sr-only">New entry</label>
-        <input type="text" id="taskInput" class="entry-form__input" placeholder="Write a new entry…" autocomplete="off">
-
-        <select id="priorityInput" class="entry-form__priority" aria-label="Priority">
-          <option value="low">Low</option>
-          <option value="normal" selected>Normal</option>
-          <option value="high">High</option>
-        </select>
-
-        <button type="submit" class="entry-form__submit">Add entry</button>
-
-      </div>
-
-      <p class="entry-form__error" id="formError" role="alert" aria-live="polite"></p>
-
-    </form>
-
-    <nav class="filters" aria-label="Filter entries">
-
-      <button class="filter active" data-filter="all">All</button>
-      <button class="filter" data-filter="active">Open</button>
-      <button class="filter" data-filter="completed">Closed</button>
-      <button class="filter filter--clear" id="clearCompleted" type="button">Clear closed</button>
-
+  <div class="topbar">
+    
+    <div class="mark">🛰️</div>
+    <div class="name mono">DECK</div>
+    
+    <nav>
+      <a href="#tasks">Tasks</a>
+      <a href="#calendar">Calendar</a>
+      <a href="#timer">Timer</a>
     </nav>
 
-    <main>
+    <div class="spacer"></div>
 
-      <ul class="ledger" id="ledgerList" aria-live="polite"></ul>
-
-      <p class="empty-state" id="emptyState">No entries yet — write the first line above.</p>
-
-    </main>
+    <button id="themeBtn" title="Toggle theme">◑</button>
 
   </div>
 
-  <div class="edit-dialog" id="editDialog" hidden>
 
-    <div class="edit-dialog__panel">
+  <main>
 
-      <h2>Edit entry</h2>
+    <div class="readout">
 
-      <label for="editInput" class="sr-only">Edit entry text</label>
-      <input type="text" id="editInput" class="entry-form__input" maxlength="120">
+      <div class="greet mono" id="greeting">GOOD DAY</div>
+      <div class="time mono" id="bigClock">00:00<span class="sec">:00</span></div>
+      <div class="date" id="bigDate"></div>
 
-      <p class="entry-form__error" id="editError" role="alert" aria-live="polite"></p>
+    </div>
 
-      <div class="edit-dialog__actions">
+    <div class="layout">
 
-        <button type="button" id="editCancel" class="btn btn--ghost">Cancel</button>
-        <button type="button" id="editSave" class="btn">Save</button>
+      <section class="panel" id="tasks">
+
+        <h2><span class="accent">01</span> · Tasks</h2>
+
+        <div class="tabs" id="tabs">
+
+          <button data-f="all" class="active">All</button>
+          <button data-f="today">Today</button>
+          <button data-f="upcoming">Upcoming</button>
+          <button data-f="completed">Done</button>
+
+        </div>
+
+
+        <form class="add-row" id="addForm">
+
+          <input type="text" id="taskText" placeholder="New task…" autocomplete="off">
+          <input type="date" id="taskDate">
+
+          <select id="taskPriority">
+            <option value="low">Low</option>
+            <option value="normal" selected>Normal</option>
+            <option value="high">High</option>
+          </select>
+
+          <button type="submit">Add</button>
+
+        </form>
+
+        <div id="taskList"></div>
+
+      </section>
+
+
+      <div class="stack">
+
+        <section class="panel">
+
+          <h2><span class="accent">02</span> · Today</h2>
+
+          <div id="schedList"></div>
+
+        </section>
+
+
+        <section class="panel" id="calendar">
+
+          <div class="calendar-header">
+
+            <h2 style="margin:0"><span class="accent">03</span> · Calendar</h2>
+
+            <div class="cal-nav">
+
+              <button id="prevMonth">‹</button>
+
+              <span id="monthLabel" class="mono" style="font-size:.68rem;font-weight:700"></span>
+
+              <button id="nextMonth">›</button>
+
+            </div>
+
+          </div>
+
+          <div class="cal-grid" id="calGrid"></div>
+
+        </section>
 
       </div>
 
     </div>
 
-  </div>
+
+    <section class="panel" id="timer">
+
+      <h2><span class="accent">04</span> · Focus Timer</h2>
+
+      <div class="timer-panel">
+
+        <div class="dial" id="ring" style="--pct:0">
+
+          <div class="dial-num">
+
+            <div>
+              <div class="tnum" id="timerNum">25:00</div>
+              <div class="tlbl" id="timerLbl">READY</div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="timer-side">
+
+          <div class="presets" id="presets">
+
+            <button data-min="15">15 MIN</button>
+            <button data-min="25" class="active">25 MIN</button>
+            <button data-min="45">45 MIN</button>
+
+          </div>
+
+          <div class="timer-controls">
+
+            <button id="tReset">↺ Reset</button>
+            <button class="tc-play" id="tPlay">▶ Start</button>
+            <button id="tSkip">⏭ Skip</button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
 
   <script src="scripts/main.js"></script>
 </body>
