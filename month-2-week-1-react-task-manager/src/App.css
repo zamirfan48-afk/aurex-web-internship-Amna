@@ -1,0 +1,168 @@
+root {
+min-height: 100vh;
+}
+
+main {
+width: min(100% - 2rem, 720px);
+margin: 0 auto;
+padding: clamp(2.5rem, 8vw, 5rem) 0;
+}
+
+header {
+margin-bottom: 2rem;
+}
+
+header h1 {
+  margin: 0;
+color: #172033;
+font-size: clamp(2rem, 6vw, 3rem);
+letter-spacing: -0.06em;
+}
+
+header p {
+margin: 0.5rem 0 0;
+color: #667085;
+font-size: 1.05rem;
+}
+
+form {
+display: grid;
+grid-template-columns: minmax(0, 1fr) auto;
+gap: 0.65rem;
+align-items: center;
+padding: 1rem;
+border: 1px solid #e5e9f2;
+border-radius: 1rem;
+background: #fff;
+box-shadow: 0 12px 32px rgb(23 32 51 / 6%);
+}
+form label {
+grid-column: 1 / -1;
+color: #344054;
+font-size: 0.9rem;
+font-weight: 650;
+}
+
+form input {
+width: 100%;
+min-width: 0;
+padding: 0.8rem 0.9rem;
+border: 1px solid #d0d5dd;
+border-radius: 0.65rem;
+color: #172033;
+background: #fff;
+}
+
+form input:focus-visible {
+outline: 3px solid rgb(79 70 229 / 20%);
+border-color: #4f46e5;
+}
+
+form button,
+li button {
+padding: 0.75rem 1rem;
+border: 0;
+border-radius: 0.65rem;
+font-weight: 650;
+transition: background-color 150ms ease, transform 150ms ease;
+}
+form button {
+color: #fff;
+background: #4f46e5;
+}
+
+form button:hover {
+background: #4338ca;
+}
+
+li button {
+color: #344054;
+background: #f2f4f7;
+}
+li button:hover {
+background: #e4e7ec;
+}
+
+li button + button {
+color: #b42318;
+background: #fff1f0;
+}
+
+li button + button:hover {
+background: #ffe1df;
+}
+form button:active,
+li button:active {
+transform: translateY(1px);
+}
+
+form p[role="alert"] {
+grid-column: 1 / -1;
+margin: 0;
+color: #b42318;
+font-size: 0.9rem;
+}
+main > ul {
+display: grid;
+gap: 0.75rem;
+margin: 1rem 0 0;
+padding: 0;
+list-style: none;
+}
+
+main > ul > p {
+margin: 0;
+padding: 1.25rem;
+border: 1px dashed #cbd2e1;
+border-radius: 0.85rem;
+color: #667085;
+text-align: center;
+}
+
+.task-item {
+display: flex;
+align-items: center;
+gap: 0.65rem;
+min-width: 0;
+padding: 0.8rem;
+border: 1px solid #e5e9f2;
+border-radius: 0.85rem;
+background: #fff;
+box-shadow: 0 6px 18px rgb(23 32 51 / 4%);
+}
+.task-item span {
+flex: 1;
+min-width: 0;
+overflow-wrap: anywhere;
+}
+
+.task-item--completed span {
+color: #98a2b3;
+text-decoration: line-through;
+}
+
+button:focus-visible {
+outline: 3px solid rgb(79 70 229 / 35%);
+outline-offset: 2px;
+}
+@media (max-width: 520px) {
+form {
+grid-template-columns: minmax(0, 1fr);
+}
+
+form label,
+form p[role="alert"] {
+grid-column: 1;
+}
+
+form button {
+width: 100%;
+}
+.task-item {
+flex-wrap: wrap;
+}
+
+.task-item span {
+flex-basis: 100%;
+}
+}
