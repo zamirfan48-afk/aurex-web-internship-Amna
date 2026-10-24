@@ -11,12 +11,11 @@
 
 ## Project
 
-### React Task Manager
+### DECK — Focused Task Manager
 
-For Month 2, Week 1, I rebuilt the core task-management workflow as a
-component-driven React application using Vite and JavaScript. The project
-focuses on functional components, JSX, `useState`, props, event handling,
-controlled inputs, and rendering lists.
+DECK recreates the internship task manager as a responsive React and Vite
+application. It includes task planning, a date-aware agenda and calendar,
+theme switching, and a configurable focus timer.
 
 ## Live Deployment
 
@@ -43,16 +42,16 @@ Project source     : https://github.com/zamirfan48-afk/aurex-web-internship-Amna
 
 ### Task Management
 ```
-- Add tasks using a controlled form input
-- Display tasks dynamically from React state
-- Mark tasks complete and active
-- Delete tasks
-- Show an empty-list message when there are no tasks
+- Add tasks with due date, optional time, and low / normal / high priority
+- Filter the task list by all, today, upcoming, and completed tasks
+- Mark tasks complete, reopen them, or delete them
+- View scheduled tasks in a date-aware daily agenda
+- Navigate a monthly calendar, with indicators for scheduled tasks
 ```
 
 ### Form & Validation
 ```
-- Prevent empty and whitespace-only task submissions
+- Prevent empty, whitespace-only, and over-120-character task submissions
 - Show a visible validation message
 - Clear the validation message when the user starts typing
 - Clear the input after a valid task is added
@@ -60,16 +59,33 @@ Project source     : https://github.com/zamirfan48-afk/aurex-web-internship-Amna
 
 ### State & Data Flow
 ```
-- App owns the shared task array with useState
+- App owns the shared task array with useState and persists it in localStorage
 - TaskForm owns its input and validation state
-- App passes task data and event-handler functions to child components
+- App passes task data, current calendar selection, and event-handler functions to child components
 - TaskForm calls onAddTask to send new task text to App
 - TaskItem calls parent handlers to complete or delete a task
 - State arrays and task objects are updated immutably
 ```
 
-> Tasks are kept in React state only. Refreshing the page resets the list;
-> localStorage persistence is not part of the Week 1 requirements.
+The dashboard also has a live clock, a persistent light / dark theme preference,
+and a focus timer with 15, 25, and 45-minute presets.
+
+## Build It Step by Step
+
+1. **Create the Vite app.** Scaffold a React project, install dependencies,
+   and add the `dev`, `build`, and `lint` scripts.
+2. **Split the interface into components.** Build `Header`, `TaskForm`,
+   `TaskList`, `TaskItem`, `Calendar`, and `FocusTimer`; mount them from `App`.
+3. **Model task data.** Store tasks as objects with an id, text, due date,
+   optional time, priority, and completion state.
+4. **Wire task interactions.** Keep the task array in `App`, then pass callbacks
+   to child components for adding, completing, deleting, and filtering tasks.
+5. **Add the calendar and agenda.** Generate the selected month’s date grid and
+   derive the agenda from tasks scheduled for the selected date.
+6. **Add persistence and controls.** Save tasks and theme preference to
+   `localStorage`; implement the live clock and interval-based focus timer.
+7. **Style and verify.** Apply responsive styles, accessible labels and focus
+   states, then run `npm run lint` and `npm run build`.
 
 ## React Concepts Practiced
 
@@ -80,9 +96,10 @@ Project source     : https://github.com/zamirfan48-afk/aurex-web-internship-Amna
 - Props for parent-to-child data flow
 - Callback props for child-to-parent communication
 - Controlled inputs and form submission events
-- Conditional rendering for validation and the empty state
+- Conditional rendering for validation, task filters, agenda, and empty states
 - Array map() with stable keys for list rendering
 - Immutable array updates with map() and filter()
+- Derived UI using useMemo and timer effects with useEffect
 ```
 
 ## Project Structure
@@ -101,7 +118,9 @@ month-2-week-1-react-task-manager/
         ├── Header.jsx
         ├── TaskForm.jsx
         ├── TaskList.jsx
-        └── TaskItem.jsx
+        ├── TaskItem.jsx
+        ├── Calendar.jsx
+        └── FocusTimer.jsx
 ```
 
 ### Component Hierarchy
@@ -110,8 +129,10 @@ month-2-week-1-react-task-manager/
 App
 ├── Header
 ├── TaskForm
-└── TaskList
-    └── TaskItem
+├── TaskList
+│   └── TaskItem
+├── Calendar
+└── FocusTimer
 ```
 
 ## Run Locally
@@ -131,12 +152,7 @@ npm run build
 ## Live Testing
 
 ```
-> Tested on the deployed GitHub Pages app:
-    - Adding a task displays it in the list
-    - Empty and whitespace-only submissions show validation
-    - Tasks can be marked complete and active
-    - Tasks can be deleted
-    - Refreshing resets tasks, as expected for React state without persistence
+> Test locally using the checks above. Task data persists across refreshes.
 ```
 
 ## Challenges & Learnings
@@ -152,9 +168,8 @@ npm run build
 ## Outcome
 
 ```
-The project applies React fundamentals to a working task manager. It
-demonstrates reusable components, state ownership, props, controlled form
-handling, validation, conditional UI, and dynamic list rendering.
+The project applies React fundamentals to a responsive task manager and adds
+useful daily planning tools, local persistence, and a focus timer.
 ```
 
 ## Author
